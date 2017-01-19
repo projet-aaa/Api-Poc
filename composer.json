@@ -32,7 +32,10 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "dunglas/action-bundle": "^0.3",
         "nelmio/cors-bundle": "^1.4",
-        "phpdocumentor/reflection-docblock": "^3.0"
+        "phpdocumentor/reflection-docblock": "^3.0",
+        "sonata-project/admin-bundle": "^3.11",
+        "sonata-project/doctrine-orm-admin-bundle": "^3.1",
+        "predis/predis": "1.1.1"
     },
     "require-dev": {
         "api-platform/schema-generator": "^1.2",
