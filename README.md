@@ -40,18 +40,23 @@ To remove the containers (you would need to do it in case of strange problems or
 To see the containers status, use ```docker-compose ps``` or ```make status``` shortcut command.
 
 
-### Application
+## Application
 
-Once you have build your images and run you containers, you can browse [http://localhost/app_dev.php](http://localhost/app_dev.php).
-
+Once you have build your images and run you containers, you can :
+  
+  * browse [http://localhost/app_dev.php](http://localhost/app_dev.php) to crawl the API.
+  * [Use websocket](http://localhost/app_dev.php/socket). It works with several browser opened. You can check network exchanges with developer tools.
+  * [Use admin space](http://localhost/app_dev.php/admin/dashboard)
+  * [Check socket engine is working](http://localhost:8088/websockets) Should display Welcome to sockjs.
 You can run commands in web docker container using 
 ```
 docker-compose exec web <your_command>
 docker exec -ti --user root <your_apiplatform_web_container_id> /bin/bash
 ```
 
-### Tests
+## Tests
 
+#### Behavioural tests on API
 You can test your project with Behat. To do so, just type ```make test_behat```
 
 You can also use :
@@ -61,4 +66,19 @@ You can also use :
 
 ```
 
-### Licence and so on : Refer to [Api Platform](https://github.com/api-platform/api-platform) great stuff.
+#### Test Redis Publish suscribe
+
+Install redis-tools : 
+```
+sudo apt-get install redis-tools
+redis-cli
+> Monitor
+```
+You should see incoming publish/suscribe messages between API and websockets.
+
+## Licence and so on : Refer to [Api Platform](https://github.com/api-platform/api-platform) great stuff.
+
+## Sources
+
+[Redis, NodeJs and Publish/Suscribe](http://www.technology-ebay.de/the-teams/mobile-de/blog/connecting-php-and-node-with-redis-pub-sub-and-sockjs.html)
+
