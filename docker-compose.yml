@@ -29,5 +29,7 @@ nodejs:
         - redis
     volumes:
         - ./nodejs:/app
+        - /app/node_modules
+
     ports:
         - 8088:8088
