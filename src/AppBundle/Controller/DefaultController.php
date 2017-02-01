@@ -15,7 +15,7 @@ class DefaultController extends Controller
 	/**
      * @Route("/socket/{name}")
 	 */
-    public function indexAction(Request $request, $name = 'default')
+    public function socketAction(Request $request, $name = 'default')
     {
 
 			$redis = new Client('tcp://redis:6379');
@@ -26,6 +26,15 @@ class DefaultController extends Controller
         return $this->render('AppBundle:Default:index.html.twig', array(
            
         ));
+    }
+
+	/**
+     * @Route("/")
+	 */
+    public function indexAction()
+    {
+
+        return $this->render('AppBundle:Default:hello.html.twig', array());
     }
 
 }
